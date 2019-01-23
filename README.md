@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Dependencies
+
+Node.js
+npm install react-router-dom redux react-redux
+npm install --save redux
+
 ## Available Scripts
 
 In the project directory, you can run:
