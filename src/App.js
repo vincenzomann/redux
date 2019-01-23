@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { connect } from 'react-redux';
-import { updateUser } from './actions/user-actions';
+import { updateUser, apiRequest } from './actions/user-actions';
 
 class App extends Component {
 
@@ -12,9 +12,13 @@ class App extends Component {
     this.props.onUpdateUser(event.target.value);
   }
 
+  componentDidMount = () => {
+    this.props.onApiRequest();
+  }
+
   render() {
 
-    console.log('props\n', this.props);
+    // console.log('props\n', this.props);
 
     return (
       <div className="App">
@@ -43,19 +47,23 @@ const mapStateToProps = (state, props) => {
 
 // dispatch action to store from component in seperate functions
 // dispatch and props as arguments
-const mapActionsToProps = (dispatch, props) => {
+const mapActionsToProps = (dispatch) => {
   return {
     onUpdateUser: (newUser) => { 
       dispatch(updateUser(newUser)); 
+    },
+    onApiRequest: () => { 
+      dispatch(apiRequest()); 
     }
   }
 };
 
+// // receive props from state, actions and parent
 // const mergeProps = (propsFromState, propsFromDispatch, ownProps) => {
 //   console.log('propsFromState:\n', propsFromState);
 //   console.log('propsFromDispatch:\n', propsFromDispatch);
 //   console.log('ownProps:\n', ownProps);
-//   return {};
+//   return {}
 // };
 
 export default connect(mapStateToProps, mapActionsToProps)(App);

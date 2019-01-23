@@ -1,4 +1,3 @@
-
 // reducer takes in initial state and an action
 const userReducer = (state = '', action) => {
   switch (action.type) {
@@ -8,5 +7,4 @@ const userReducer = (state = '', action) => {
       return state
   }
 }
-
 export default userReducer;
